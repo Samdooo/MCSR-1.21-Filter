@@ -1,0 +1,1 @@
+gcc main.c "cubiomes/finders.c" "cubiomes/generator.c" "cubiomes/layers.c" "cubiomes/noise.c" "cubiomes/biomenoise.c" "cubiomes/quadbase.c" "cubiomes/util.c" "cubiomes/biomes.c" "bastion.c" "ruined_portal.c" "enchantment.c" "utilities.c" -o main -O3 -Wall -Wextra -std=c99 -lm -fopenmp
