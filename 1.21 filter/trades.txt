@@ -1,0 +1,29 @@
+3884368187812655474 ; 6 ; /teleport @a -1736 ~ 827 ; junk, junk, junk, 4 pearls, junk, 1 fire charge, junk, junk, 4 pearls
+3953627012219354670 ; 2 ; /teleport @a 278 ~ 1608 ; 2 pearls, junk, 4 pearls, junk, 4 pearls, junk, 2 pearls, junk, 7 string
+3910562096185244947 ; 4 ; /teleport @a -1579 ~ -2015 ; junk, 4 pearls, junk, 26 iron nuggets, 4 pearls, junk, 3 pearls, junk, junk
+4126187742166980373 ; 1 ; /teleport @a -649 ~ 1313 ; junk, junk, junk, 1 fire charge, 2 pearls, 3 pearls, junk, 4 pearls, 4 pearls
+3882727581488559554 ; 4 ; /teleport @a 2135 ~ -1474 ; 3 pearls, junk, junk, 4 pearls, 4 pearls, 1 obsidian, 1 fire charge, 1 fire charge, 3 pearls
+3560192734783083754 ; 4 ; /teleport @a 435 ~ 1461 ; 1 fire charge, junk, 4 pearls, 2 pearls, 4 pearls, junk, junk, junk, junk
+3920771578657306352 ; 3 ; /teleport @a 1379 ~ 630 ; 1 fire charge, 4 pearls, junk, junk, 1 obsidian, junk, junk, 4 pearls, 3 pearls
+4599975190115689577 ; 6 ; /teleport @a 2230 ~ 469 ; 4 pearls, junk, 1 fire charge, 4 pearls, junk, junk, junk, junk, junk
+4192684800984369603 ; 3 ; /teleport @a 579 ~ 1646 ; junk, junk, 4 pearls, 32 iron nuggets, 1 fire charge, 8 string, 3 pearls, 4 pearls, junk
+3767394988976182406 ; 4 ; /teleport @a -1511 ~ 1784 ; junk, 4 pearls, 1 fire charge, junk, junk, 4 pearls, 3 pearls, junk, junk
+4433673338731891571 ; 4 ; /teleport @a -1108 ~ 651 ; junk, junk, 4 pearls, junk, 4 pearls, junk, junk, 3 pearls, junk
+4433673338731891571 ; 3 ; /teleport @a -106 ~ -2488 ; junk, junk, 4 pearls, junk, 4 pearls, junk, junk, 3 pearls, junk
+4379635708018072966 ; 3 ; /teleport @a 1100 ~ -1269 ; junk, junk, junk, 4 pearls, 9 string, junk, 4 pearls, 3 pearls, junk
+4232145301718536701 ; 3 ; /teleport @a 1954 ~ -1030 ; 4 pearls, junk, 4 pearls, junk, 3 pearls, junk, 7 string, junk, junk
+4362472407230164474 ; 4 ; /teleport @a 119 ~ 1469 ; 4 pearls, junk, 4 pearls, junk, junk, junk, junk, 1 obsidian, 4 pearls
+4457068761950298142 ; 3 ; /teleport @a 1587 ~ 9 ; 4 pearls, 4 pearls, 3 pearls, junk, junk, 9 string, junk, junk, 1 obsidian
+4457068761950298142 ; 4 ; /teleport @a -863 ~ -1317 ; 4 pearls, 4 pearls, 3 pearls, junk, junk, 9 string, junk, junk, 1 obsidian
+3608713835765396203 ; 3 ; /teleport @a -2648 ~ -329 ; junk, 13 iron nuggets, 1 obsidian, 4 pearls, junk, junk, 4 pearls, 5 string, 3 pearls
+3597762125499179548 ; 4 ; /teleport @a 667 ~ 1770 ; junk, 1 obsidian, junk, 4 pearls, junk, 3 pearls, 1 obsidian, 3 pearls, junk
+3734280090770327617 ; 2 ; /teleport @a -914 ~ -1502 ; 4 pearls, junk, junk, 4 pearls, junk, junk, junk, 3 string, 4 pearls
+3790862055267068317 ; 2 ; /teleport @a -410 ~ 1739 ; junk, junk, junk, junk, 4 pearls, 4 pearls, 1 fire charge, junk, 4 pearls
+3510527696467710468 ; 4 ; /teleport @a 1579 ~ 1475 ; junk, 3 pearls, 1 obsidian, junk, junk, 4 pearls, 3 pearls, junk, 3 pearls
+4256727018755572835 ; 2 ; /teleport @a 2199 ~ -1343 ; 4 pearls, 3 pearls, 1 obsidian, 2 pearls, junk, junk, junk, junk, 3 pearls
+4057725245997412560 ; 2 ; /teleport @a 741 ~ 1619 ; 1 fire charge, 4 pearls, 1 obsidian, 5 string, 4 pearls, 1 obsidian, 4 pearls, junk, junk
+4057725245997412560 ; 2 ; /teleport @a -1948 ~ -254 ; 1 fire charge, 4 pearls, 1 obsidian, 5 string, 4 pearls, 1 obsidian, 4 pearls, junk, junk
+4047874393121616004 ; 3 ; /teleport @a -2052 ~ 483 ; 4 pearls, junk, junk, 5 string, junk, 4 pearls, 4 pearls, 1 fire charge, 7 string
+4308805107366097350 ; 4 ; /teleport @a -2123 ~ -1597 ; 4 pearls, 2 pearls, 4 pearls, 1 obsidian, junk, junk, 3 pearls, 1 fire charge, junk
+4557066858235171522 ; 5 ; /teleport @a 292 ~ 1630 ; 2 pearls, junk, 3 pearls, 4 pearls, junk, 1 obsidian, junk, junk, junk
+3751486776229168577 ; 2 ; /teleport @a -1626 ~ -594 ; junk, junk, 4 pearls, junk, 9 string, 2 pearls, 2 pearls, junk, 4 pearls
