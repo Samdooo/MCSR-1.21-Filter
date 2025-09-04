@@ -27,29 +27,35 @@ int main() {
     };
     
     ifstream ifile("result.txt");
-    ofstream ofile("trades.txt");
+    ofstream ofile("trades.txt", ios::app);
     string line;
     while (getline(ifile, line)){
         stringstream sline(line);
         uint64_t seed;
         sline >> seed;
         char junk;
-        sline >> junk;
         int numEyes;
-        sline >> numEyes;
+        sline >> junk >> numEyes >> junk >> numEyes;
         
         Xoroshiro xoro = getRandomSequenceXoro(seed, bartering_str);
         
-        ofile << line << " ; ";
+        stringstream snewline;
+        snewline << line;
+        snewline << " ; ";
         
+        int numPearls = 0;
         for (int i = 0; i < MAX_INGOTS; ++i) {
             BarteringOut out = nextBarteringLoot(&xoro);
 
             if (names.count(out.id)){
-                ofile << out.amount << " " << names[out.id] << (i + 1 < MAX_INGOTS ? ", " : "");
+                snewline << out.amount << " " << names[out.id] << (i + 1 < MAX_INGOTS ? ", " : "");
             }
             else {
-                ofile << "junk" << (i + 1 < MAX_INGOTS ? ", " : "");
+                snewline << "junk" << (i + 1 < MAX_INGOTS ? ", " : "");
+            }
+            
+            if (out.id == 6) {
+                numPearls += out.amount;
             }
 
             // bartered++;
@@ -63,9 +69,9 @@ int main() {
             // 	break;
             // }
         }
-        
-        ofile << "\n";
-        
+        if (numPearls >= (12 - numEyes) + 1){
+            ofile << snewline.str() << "\n";
+        }
     }
     
 	return 0;
