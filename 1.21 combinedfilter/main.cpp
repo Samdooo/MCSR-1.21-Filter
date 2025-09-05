@@ -424,7 +424,7 @@ int main(int argc, char **argv)
 					triple_three_x = data[7] * 16;
 					triple_three_z = data[8] * 16;
 				}
-				int tripleCount = data.size() + 1;
+				int tripleCount = data.size();
 
 				structSeeds.push_back({structure_seed, triple_one_x, triple_one_z, triple_two_x, triple_two_z, triple_three_x, triple_three_z,
 									   data[3], data[6], data[9], tripleCount});
@@ -744,14 +744,14 @@ int main(int argc, char **argv)
 								continue;
 							}
 							
-							//if ((obsidian + portal_obsidian - portal.required_obsidian) < 10) {
-							//	continue;
-							//}
+							if ((obsidian + portal_obsidian - portal.required_obsidian) < 10) {
+								continue;
+							}
 							
 							if (pearls < required_pearls) {
 								continue;
 							}
-							//
+							
 							if (string < 3) {
 								continue;
 							}
@@ -761,11 +761,6 @@ int main(int argc, char **argv)
 								continue;
 							}
 							
-							printf("%" PRIi64 " ; %d\n", world_seed, first_blaze_no_looting);
-							threadProgress[t].messages.push_back(std::to_string(world_seed)
-								+ " ; " + std::to_string(first_blaze_no_looting));
-							continue;
-									   
 							required_eyes = std::max(12 - rods * 2, 12 - (pearls - 2));
 							if (required_eyes <= 0) {
 								printf("%" PRIi64 " ; 14+ pearls, 6+ rods\n", world_seed);
