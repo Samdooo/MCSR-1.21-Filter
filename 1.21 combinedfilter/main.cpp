@@ -764,7 +764,7 @@ int main(int argc, char **argv)
 							required_eyes = std::max(12 - rods * 2, 12 - (pearls - 2));
 							if (required_eyes <= 0) {
 								printf("%" PRIi64 " ; 14+ pearls, 6+ rods\n", world_seed);
-								threadProgress[t].messages.push_back(std::to_string(world_seed) + " ; 14+ pearls, 6+ rods");
+								threadProgress[t].messages.push_back(std::to_string((int64_t)world_seed) + " ; 14+ pearls, 6+ rods");
 								continue;
 							}
 
@@ -910,7 +910,7 @@ int main(int argc, char **argv)
 								
 								if (eyes_count >= required_eyes) {
 									printf("%" PRIi64 " ; %d ; %d ; /teleport @a %d ~ %d\n", world_seed, first_blaze_no_looting, eyes_count, portal_start_x, portal_start_z);
-									threadProgress[t].messages.push_back(std::to_string(world_seed)
+									threadProgress[t].messages.push_back(std::to_string((int64_t)world_seed)
 									 + " ; " + std::to_string(first_blaze_no_looting)
 									  + " ; " + std::to_string(eyes_count)
 									   + " ; /teleport @a " + std::to_string(portal_start_x) + " ~ " + std::to_string(portal_start_z));
