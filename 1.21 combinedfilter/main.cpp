@@ -437,27 +437,27 @@ int main(int argc, char **argv)
 		std::vector<std::thread> threads{};
 		struct ThreadProgress {
 			int seedIndex = 0;
-			bool finished = false;
+			bool finished = false, joined = false;
 			std::vector<std::string> messages{};
 		};
 		std::vector<ThreadProgress> threadProgress(numThreads);
-		for (int i = 0; i < numThreads; ++i)
+		for (int t = 0; t < numThreads; ++t)
 		{
-			threads.push_back(std::thread([&structSeeds, i, numSeedsPerThread, part, &threadProgress]
-										  {
-				int beg = numSeedsPerThread * i;
-				int end = std::min((int)structSeeds.size(), numSeedsPerThread * (i + 1));
+			threads.push_back(std::thread([&structSeeds, t, numSeedsPerThread, part, &threadProgress]
+										  {					
+				int beg = numSeedsPerThread * t;
+				int end = std::min((int)structSeeds.size(), numSeedsPerThread * (t + 1));
 				for (int s = beg; s < end; s++) {
-					threadProgress[i].seedIndex = s;
-					StructureSeed seed = structSeeds[s];
-					uint64_t structure_seed = seed.structure_seed;
-					int triple_one_x = seed.triple_one_x;
-					int triple_one_z = seed.triple_one_z;
-					int triple_two_x = seed.triple_two_x;
-					int triple_two_z = seed.triple_two_z;
-					int triple_three_x = seed.triple_three_x;
-					int triple_three_z = seed.triple_three_z;
-					int triple_count = seed.tripleCount;
+					threadProgress[t].seedIndex = s;
+					StructureSeed structSeed = structSeeds[s];
+					uint64_t structure_seed = structSeed.structure_seed;
+					int triple_one_x = structSeed.triple_one_x;
+					int triple_one_z = structSeed.triple_one_z;
+					int triple_two_x = structSeed.triple_two_x;
+					int triple_two_z = structSeed.triple_two_z;
+					int triple_three_x = structSeed.triple_three_x;
+					int triple_three_z = structSeed.triple_three_z;
+					int triple_count = structSeed.tripleCount;
 					
 					StrongholdIter sh;
 					stronghold_generator::StrongholdGenerator strongholdGenerator;
@@ -583,17 +583,18 @@ int main(int argc, char **argv)
 							if(triple_count == 8) {
 								tmp_pos1 = { triple_one_x, triple_one_z };
 								tmp_pos2 = { triple_two_x, triple_two_z };
-								entries = get_stables_double_triple_loot(world_seed, &tmp_pos1, &tmp_pos2, loot, seed.data3, seed.data6);
+								entries = get_stables_double_triple_loot(world_seed, &tmp_pos1, &tmp_pos2, loot, structSeed.data3, structSeed.data6);
 							} else if(triple_count == 11) {
 								tmp_pos1 = { triple_one_x, triple_one_z };
 								tmp_pos2 = { triple_two_x, triple_two_z };
 								tmp_pos3 = { triple_three_x, triple_three_z };
-								entries = get_stables_loot(world_seed, &tmp_pos1, &tmp_pos2, &tmp_pos3, loot, seed.data3, seed.data6, seed.data9);
+								entries = get_stables_loot(world_seed, &tmp_pos1, &tmp_pos2, &tmp_pos3, loot, structSeed.data3, structSeed.data6, structSeed.data9);
 							} else if(triple_count == 1) {
 								tmp_pos1 = { five_chests_x, five_chests_z };
 								tmp_pos2 = { three_chests_x, three_chests_z };
 								entries = get_bastion_ramparts_loot(world_seed, &tmp_pos1, &tmp_pos2, loot);
 							}
+							
 							for (i =0 ; i < entries; ++i) {
 								id = loot[4*i];
 								count = loot[4*i+1];
@@ -678,7 +679,7 @@ int main(int argc, char **argv)
 							if (axe != 1) {
 								continue;
 							}
-
+							
 							xoro = getRandomSequenceXoro(world_seed, blaze_str);
 							if (sword != 0) {
 								for (i = 0; i < 2; ++i) {
@@ -732,7 +733,7 @@ int main(int argc, char **argv)
 									iron_nuggets += out.amount;
 								}
 							}
-
+							
 							if (!(
 								(flint_and_steel || (charges && flint) || (charges && nether_charges) || (charges >= 2))
 							)) {
@@ -742,15 +743,15 @@ int main(int argc, char **argv)
 							if (iron_ingots + iron_nuggets / 9 < 26) {
 								continue;
 							}
-
-							if ((obsidian + portal_obsidian - portal.required_obsidian) < 10) {
-								continue;
-							}
-
+							
+							//if ((obsidian + portal_obsidian - portal.required_obsidian) < 10) {
+							//	continue;
+							//}
+							
 							if (pearls < required_pearls) {
 								continue;
 							}
-
+							//
 							if (string < 3) {
 								continue;
 							}
@@ -759,11 +760,11 @@ int main(int argc, char **argv)
 							if (abs(spawn.x - portal_pos.x) > 48 || abs(spawn.z - portal_pos.z) > 48) {
 								continue;
 							}
-
+							
 							required_eyes = std::max(12 - rods * 2, 12 - (pearls - 2));
 							if (required_eyes <= 0) {
 								printf("%" PRIi64 " ; 14+ pearls, 6+ rods\n", world_seed);
-								threadProgress[i].messages.push_back(std::to_string(world_seed) + " ; 14+ pearls, 6+ rods");
+								threadProgress[t].messages.push_back(std::to_string(world_seed) + " ; 14+ pearls, 6+ rods");
 								continue;
 							}
 
@@ -909,15 +910,15 @@ int main(int argc, char **argv)
 								
 								if (eyes_count >= required_eyes) {
 									printf("%" PRIi64 " ; %d ; %d ; /teleport @a %d ~ %d\n", world_seed, first_blaze_no_looting, eyes_count, portal_start_x, portal_start_z);
-									threadProgress[i].messages.push_back(std::to_string(world_seed)
+									threadProgress[t].messages.push_back(std::to_string(world_seed)
 									 + " ; " + std::to_string(first_blaze_no_looting)
 									  + " ; " + std::to_string(eyes_count)
 									   + " ; /teleport @a " + std::to_string(portal_start_x) + " ~ " + std::to_string(portal_start_z));
 								}
 							}
 						}
-				} 
-				threadProgress[i].finished = true;
+				}
+				threadProgress[t].finished = true;
 			}));
 		}
 		int finishedThreads = 0;
@@ -925,10 +926,11 @@ int main(int argc, char **argv)
 		while (finishedThreads < numThreads) {
 			std::this_thread::sleep_for(std::chrono::seconds(10));
 			for (int i = 0; i < numThreads; ++i) {
-				threadProgress[i].messages.clear();
-				if (threadProgress[i].finished) {
+				if (threadProgress[i].finished && !threadProgress[i].joined) {
 					threads[i].join();
+					threadProgress[i].joined = true;
 					finishedThreads++;
+					std::cout << i << " finished with " << threadProgress[i].messages.size() << " messages" << std::endl;
 					for (std::string& message : threadProgress[i].messages) {
 						ofile << message << std::endl;
 					}
