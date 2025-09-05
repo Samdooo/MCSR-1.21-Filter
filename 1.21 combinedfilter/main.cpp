@@ -407,15 +407,15 @@ int main(int argc, char **argv)
 				int triple_one_x, triple_one_z, triple_two_x, triple_two_z, triple_three_x, triple_three_z;
 
 				structure_seed = data[0];
-
-				if (data.size() == 7)
+				
+				if (data.size() == 8)
 				{
 					triple_one_x = data[1] * 16;
 					triple_one_z = data[2] * 16;
 					triple_two_x = data[4] * 16;
 					triple_two_z = data[5] * 16;
 				}
-				if (data.size() == 10)
+				if (data.size() == 11)
 				{
 					triple_one_x = data[1] * 16;
 					triple_one_z = data[2] * 16;
