@@ -761,6 +761,11 @@ int main(int argc, char **argv)
 								continue;
 							}
 							
+							printf("%" PRIi64 " ; %d\n", world_seed, first_blaze_no_looting);
+							threadProgress[t].messages.push_back(std::to_string(world_seed)
+								+ " ; " + std::to_string(first_blaze_no_looting));
+							continue;
+									   
 							required_eyes = std::max(12 - rods * 2, 12 - (pearls - 2));
 							if (required_eyes <= 0) {
 								printf("%" PRIi64 " ; 14+ pearls, 6+ rods\n", world_seed);
